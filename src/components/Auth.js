@@ -14,12 +14,6 @@ export default function Auth() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      navigate('/me');
-    }
-  }, [navigate]);
-
-  useEffect(() => {
     // console.log(query.get('code'));
     if (query.get('code')) {
       const fetchToken = async () => {
@@ -29,12 +23,17 @@ export default function Auth() {
         if (data.access_token) {
           localStorage.setItem('token', data.access_token);
         }
-
         procoreIframeHelpers.initialize().authentication.notifySuccess({});
       };
       fetchToken();
     }
   }, [query]);
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate('/me');
+    }
+  }, [navigate]);
 
   async function handleLogin() {
     const iframeHelperContext = procoreIframeHelpers.initialize();
