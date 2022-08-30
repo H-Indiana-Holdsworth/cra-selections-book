@@ -11,7 +11,7 @@ function useQuery() {
 
 export default function Auth() {
   let query = useQuery();
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
