@@ -23,6 +23,7 @@ export default function Auth() {
         if (data.access_token) {
           localStorage.setItem('token', data.access_token);
         }
+
         procoreIframeHelpers.initialize().authentication.notifySuccess({});
       };
       fetchToken();
