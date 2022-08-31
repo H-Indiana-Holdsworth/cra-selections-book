@@ -24,8 +24,8 @@ export default function Auth() {
           localStorage.setItem('token', data.access_token);
         }
 
-        const helpers = procoreIframeHelpers.initialize().authentication.notifySuccess({});
-        console.log('helpers', helpers);
+        // procoreIframeHelpers.initialize().authentication.notifySuccess({});
+
       };
       fetchToken();
     }
