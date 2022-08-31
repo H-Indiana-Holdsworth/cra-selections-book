@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Auth />} />
           <Route exact path="/callback" element={<Auth />} />
-          <Route path="/me" element={<Me />} />
+          <Route exact path="/me" element={<Me />} />
         </Routes>
       </BrowserRouter>
     </div>
