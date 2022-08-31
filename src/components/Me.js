@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import * as procoreIframeHelpers from '@procore/procore-iframe-helpers';
+// import * as procoreIframeHelpers from '@procore/procore-iframe-helpers';
 
 export default function Me() {
   const [id, setId] = useState('');
@@ -12,7 +12,7 @@ export default function Me() {
       setId(data.id);
       setEmail(data.email);
 
-      procoreIframeHelpers.initialize().authentication.notifySuccess({});
+      // procoreIframeHelpers.initialize().authentication.notifySuccess({});
     };
     loadData();
   }, []);
