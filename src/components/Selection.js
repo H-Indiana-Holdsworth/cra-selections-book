@@ -14,7 +14,7 @@ export default function Selection() {
 
   return (
     <div>
-      <button onClick={handleClick}>Create Submittal</button>
+      <button onClick={handleClick}>Create Submittal!</button>
     </div>
   );
 }
