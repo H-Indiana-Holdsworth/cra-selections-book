@@ -19,7 +19,7 @@ export default function Auth() {
       const fetchToken = async () => {
         const resp = await fetch(`.netlify/functions/exchange-token?code=${query.get('code')}`);
         const data = await resp.json();
-        // console.log(data);
+        // console.log('data => ', data);
         if (data.access_token) {
           localStorage.setItem('token', data.access_token);
         }
