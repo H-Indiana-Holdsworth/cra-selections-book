@@ -4,12 +4,13 @@ require('dotenv').config({ path: resolve(__dirname, '../.env.development.local')
 
 export async function handler(event, context) {
   const resp = await fetch(
-    `${process.env.REACT_APP_PROCORE_URL}/rest/v1.1/projects/34230/submittals`,
+    `${process.env.REACT_APP_PROCORE_API_URL}/rest/v1.1/projects/34230/submittals?send_emails=false`,
     {
       method: 'POST',
       headers: {
-        'content-type': 'application/json',
-        Authorization: `Bearer ${event.queryStringParameters.token}`,
+        Accept: 'application/json',
+        'User-Agent': '*',
+        Authorization: `Bearer eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiIyNjNkNGM3M2Y3Yjc0MWRhMDQ3ODY0ZDMxMWYzMmUwYzUzODM3M2ExZWU0ZDMwMGRlMWVjMTBjYThlOWE4YmRiIiwiYW91aWQiOm51bGwsImFvdXVpZCI6bnVsbCwiZXhwIjoxNjYyMDY2Mjk4LCJzaWF0IjoxNjYyMDU5MDk4LCJ1aWQiOjkyMjA5LCJ1dWlkIjoiMzVlY2M3NmYtZTViMS00MmI0LTg2MzctNWM3N2ZlMDliNjg3In0.AW1MrfC257wLFylAQS1TW3kFwrDi0LZzHt4p62VkF1waJegKqmz3Ks_IdhU7xleUnA1Ft8f066D0rla7c_oqTGljAZJu8KRvKzTyKU9ufDCZ_urvad2uy6YDPXR2dnQ3D97eiMIJ9aaWSVV3szz_J85Ge0fyGB6eZOM1FjlxdnG5-CdS`,
       },
       body: JSON.stringify({
         submittal: {
@@ -50,6 +51,10 @@ export async function handler(event, context) {
     }
   );
   const data = await resp.json();
-  console.log('data', data);
-  return data;
+  console.log('data =>', data);
+  // return data;
+  return {
+    statusCode: 200,
+    body: JSON.stringify(data),
+  };
 }

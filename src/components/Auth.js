@@ -25,7 +25,6 @@ export default function Auth() {
         }
 
         // procoreIframeHelpers.initialize().authentication.notifySuccess({});
-
       };
       fetchToken();
     }
@@ -40,7 +39,7 @@ export default function Auth() {
   async function handleLogin() {
     const iframeHelperContext = procoreIframeHelpers.initialize();
     const authUrl = `
-    ${process.env.REACT_APP_PROCORE_URL}/oauth/authorize?client_id=${process.env.REACT_APP_PROCORE_CLIENT}&response_type=code&redirect_uri=${process.env.REACT_APP_PROCORE_CALLBACK}
+    ${process.env.REACT_APP_PROCORE_LOGIN_URL}/oauth/authorize?client_id=${process.env.REACT_APP_PROCORE_CLIENT}&response_type=code&redirect_uri=${process.env.REACT_APP_PROCORE_CALLBACK}
   `;
 
     iframeHelperContext.authentication.authenticate({
