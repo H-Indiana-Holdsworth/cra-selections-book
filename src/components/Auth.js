@@ -1,5 +1,6 @@
 import { Button, H1 } from '@procore/core-react';
 import * as procoreIframeHelpers from '@procore/procore-iframe-helpers';
+import { initialize } from '@procore/procore-iframe-helpers';
 
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -25,7 +26,7 @@ export default function Auth() {
           localStorage.setItem('token', data.access_token);
         }
 
-        // procoreIframeHelpers.initialize().authentication.notifySuccess({});
+        initialize().authentication.notifySuccess({});
       };
       fetchToken();
     }
@@ -38,7 +39,7 @@ export default function Auth() {
   }, [navigate]);
 
   async function handleLogin() {
-    const iframeHelperContext = procoreIframeHelpers.initialize();
+    const iframeHelperContext = initialize();
     const authUrl = `
     ${process.env.REACT_APP_PROCORE_LOGIN_URL}/oauth/authorize?client_id=${process.env.REACT_APP_PROCORE_CLIENT}&response_type=code&redirect_uri=${process.env.REACT_APP_PROCORE_CALLBACK}
   `;
