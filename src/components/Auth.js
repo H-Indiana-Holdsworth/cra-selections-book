@@ -1,3 +1,4 @@
+import { Button, H1 } from '@procore/core-react';
 import * as procoreIframeHelpers from '@procore/procore-iframe-helpers';
 
 import React, { useEffect } from 'react';
@@ -58,9 +59,10 @@ export default function Auth() {
   }
   return (
     <div>
-      <button style={{ height: '500px', width: '300px' }} onClick={handleLogin}>
-        Login with Procore
-      </button>
+      <>
+        <H1>Hello! Please login with Procore to continue to your Selections Book.</H1>
+        <Button onClick={handleLogin}>Login with Procore</Button>
+      </>
     </div>
   );
 }
