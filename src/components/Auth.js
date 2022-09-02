@@ -1,3 +1,5 @@
+import { Button, H1 } from '@procore/core-react';
+import * as procoreIframeHelpers from '@procore/procore-iframe-helpers';
 import { initialize } from '@procore/procore-iframe-helpers';
 
 import React, { useEffect } from 'react';
@@ -19,7 +21,7 @@ export default function Auth() {
       const fetchToken = async () => {
         const resp = await fetch(`.netlify/functions/exchange-token?code=${query.get('code')}`);
         const data = await resp.json();
-        // console.log(data);
+        // console.log('data => ', data);
         if (data.access_token) {
           localStorage.setItem('token', data.access_token);
         }
@@ -39,7 +41,7 @@ export default function Auth() {
   async function handleLogin() {
     const iframeHelperContext = initialize();
     const authUrl = `
-    ${process.env.REACT_APP_PROCORE_URL}/oauth/authorize?client_id=${process.env.REACT_APP_PROCORE_CLIENT}&response_type=code&redirect_uri=${process.env.REACT_APP_PROCORE_CALLBACK}
+    ${process.env.REACT_APP_PROCORE_LOGIN_URL}/oauth/authorize?client_id=${process.env.REACT_APP_PROCORE_CLIENT}&response_type=code&redirect_uri=${process.env.REACT_APP_PROCORE_CALLBACK}
   `;
 
     iframeHelperContext.authentication.authenticate({
@@ -58,9 +60,10 @@ export default function Auth() {
   }
   return (
     <div>
-      <button style={{ height: '500px', width: '300px' }} onClick={handleLogin}>
-        Login with Procore
-      </button>
+      <>
+        <H1>Hello! Please login with Procore to continue to your Selections Book.</H1>
+        <Button onClick={handleLogin}>Login with Procore</Button>
+      </>
     </div>
   );
 }
