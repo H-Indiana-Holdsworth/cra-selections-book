@@ -1,5 +1,4 @@
 import { Button, H1 } from '@procore/core-react';
-import * as procoreIframeHelpers from '@procore/procore-iframe-helpers';
 import { initialize } from '@procore/procore-iframe-helpers';
 
 import React, { useEffect } from 'react';
