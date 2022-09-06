@@ -28,6 +28,9 @@
     "dev": "netlify dev --port=4567"
   },
   "eslintConfig": {
+    "rules": {
+      "react/react-in-jsx-scope": "off"
+    },
     "extends": [
       "react-app",
       "react-app/jest"
