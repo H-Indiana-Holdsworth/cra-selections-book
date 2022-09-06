@@ -4,6 +4,7 @@ import Auth from './components/Auth';
 import Me from './components/Me';
 import Selection from './components/Selection';
 import React from 'react';
+import Toc from './components/Toc';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/callback" element={<Auth />} />
           <Route exact path="/me" element={<Me />} />
           <Route exact path="/selection" element={<Selection />} />
+          <Route exact path="/tableofcontents" element={<Toc />} />
         </Routes>
       </BrowserRouter>
     </div>
