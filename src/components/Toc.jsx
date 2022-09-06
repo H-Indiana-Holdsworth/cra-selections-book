@@ -7,6 +7,7 @@ import {
   Pagination,
   Search,
   Table,
+  Tabs,
   ToolHeader,
 } from '@procore/core-react';
 import React from 'react';
@@ -18,6 +19,17 @@ export default function Toc() {
         <ListPage.ToolHeader>
           <ToolHeader>
             <ToolHeader.Title>Selections Book</ToolHeader.Title>
+            <ToolHeader.Tabs>
+              <Tabs.Tab active>
+                <Tabs.Link href="/summary">Summary</Tabs.Link>
+              </Tabs.Tab>
+              <Tabs.Tab>
+                <Tabs.Link href="/substitution-procedures">Substitution Procedures</Tabs.Link>
+              </Tabs.Tab>
+              <Tabs.Tab>
+                <Tabs.Link href="/submittal-procedures">Submittal Procedures</Tabs.Link>
+              </Tabs.Tab>
+            </ToolHeader.Tabs>
           </ToolHeader>
         </ListPage.ToolHeader>
 
@@ -67,18 +79,115 @@ export default function Toc() {
                   <Table.HeaderCell sortable variant="asc">
                     Selection Section
                   </Table.HeaderCell>
+                  <Table.HeaderCell sortable>Division Number</Table.HeaderCell>
+                  <Table.HeaderCell sortable>Division Description</Table.HeaderCell>
                   <Table.HeaderCell sortable>Specification Section Number</Table.HeaderCell>
                 </Table.HeaderRow>
               </Table.Header>
 
               <Table.Body>
+                {/* General Requirements */}
                 <Table.BodyRow>
                   <Table.BodyCell>*</Table.BodyCell>
                   <Table.BodyCell>
-                    <Table.LinkCell href="/">Windows</Table.LinkCell>
+                    <Table.LinkCell href="/summary">Summary</Table.LinkCell>
                   </Table.BodyCell>
                   <Table.BodyCell>
-                    <Table.TextCell>08 50 00</Table.TextCell>
+                    <Table.TextCell>01</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>General Requirements</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>01 10 00</Table.TextCell>
+                  </Table.BodyCell>
+                </Table.BodyRow>
+
+                <Table.BodyRow>
+                  <Table.BodyCell>*</Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.LinkCell href="/substitution-procedures">
+                      Substitution Procedures
+                    </Table.LinkCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>01</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>General Requirements</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>01 25 00</Table.TextCell>
+                  </Table.BodyCell>
+                </Table.BodyRow>
+
+                <Table.BodyRow>
+                  <Table.BodyCell>*</Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.LinkCell href="/submittal-procedures">
+                      Submittal Procedures
+                    </Table.LinkCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>01</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>General Requirements</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>01 33 00</Table.TextCell>
+                  </Table.BodyCell>
+                </Table.BodyRow>
+
+                {/* Concrete */}
+                <Table.BodyRow>
+                  <Table.BodyCell>*</Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.LinkCell href="/concrete-finishing">Concrete Finishing</Table.LinkCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>03</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>Concrete</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>03 35 00</Table.TextCell>
+                  </Table.BodyCell>
+                </Table.BodyRow>
+
+                {/* Masonry */}
+                <Table.BodyRow>
+                  <Table.BodyCell>*</Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.LinkCell href="/exterior-stone-cladding">
+                      Exterior Stone Cladding
+                    </Table.LinkCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>04</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>Masonry</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>04 42 00</Table.TextCell>
+                  </Table.BodyCell>
+                </Table.BodyRow>
+
+                <Table.BodyRow>
+                  <Table.BodyCell>*</Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.LinkCell href="/masonry-fireplaces">Masonry Fireplaces</Table.LinkCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>04</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>Masonry</Table.TextCell>
+                  </Table.BodyCell>
+                  <Table.BodyCell>
+                    <Table.TextCell>04 57 00</Table.TextCell>
                   </Table.BodyCell>
                 </Table.BodyRow>
               </Table.Body>
