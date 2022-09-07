@@ -5,7 +5,7 @@ import Me from './components/Me/Me';
 import Selection from './components/Selection/Selection';
 import React from 'react';
 import TableOfContents from './views/TableOfContents/TableOfContents';
-import Substitution from './views/Procedures/Substitution';
+import Substitution from './components/Substitution/Substitution';
 
 function App() {
   return (
