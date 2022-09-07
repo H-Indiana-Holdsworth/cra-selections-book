@@ -5,6 +5,7 @@ import Me from './components/Me/Me';
 import Selection from './components/Selection/Selection';
 import React from 'react';
 import TableOfContents from './views/TableOfContents/TableOfContents';
+import Substitution from './views/Procedures/Substitution';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route exact path="/callback" element={<Auth />} />
           <Route exact path="/me" element={<Me />} />
           <Route exact path="/selection" element={<Selection />} />
-          <Route exact path="/tableofcontents" element={<TableOfContents />} />
+          <Route exact path="/table-of-contents" element={<TableOfContents />} />
+          <Route exact path="/substitution-procedures" element={<Substitution />} />
         </Routes>
       </BrowserRouter>
     </div>

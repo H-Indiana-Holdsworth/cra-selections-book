@@ -1,7 +1,7 @@
 import {
-  ActionBanner,
   Banner,
   H2,
+  InfoBanner,
   LinkButton,
   ListPage,
   Pagination,
@@ -21,6 +21,9 @@ export default function Toc() {
             <ToolHeader.Title>Selections Book</ToolHeader.Title>
             <ToolHeader.Tabs>
               <Tabs.Tab active>
+                <Tabs.Link href="/selection-list">Selection List</Tabs.Link>
+              </Tabs.Tab>
+              <Tabs.Tab>
                 <Tabs.Link href="/summary">Summary</Tabs.Link>
               </Tabs.Tab>
               <Tabs.Tab>
@@ -34,7 +37,7 @@ export default function Toc() {
         </ListPage.ToolHeader>
 
         <ListPage.Banner>
-          <ActionBanner>
+          <InfoBanner>
             <Banner.Content>
               <Banner.Title>Need Help?</Banner.Title>
               <Banner.Body>
@@ -45,7 +48,7 @@ export default function Toc() {
             <Banner.Action>
               <LinkButton href="mailto:indy@holdsworthconstruction.com">Email</LinkButton>
             </Banner.Action>
-          </ActionBanner>
+          </InfoBanner>
         </ListPage.Banner>
 
         <ListPage.ContentControls>
