@@ -144,6 +144,30 @@ export default function Substitution() {
                   </ol>
                 </DetailPage.Section>
               </DetailPage.Section>
+
+              <DetailPage.Section
+                expandId={2}
+                heading="Considerations"
+                subtext="Considerations for the Owner to take into account."
+                initialIsOpen={true}
+              >
+                <DetailPage.Section expandId={20} heading="Changes" initialIsOpen={false}>
+                  <ol>
+                    <li>
+                      <P>
+                        Submit RFI for change to approved selections or plans{' '}
+                        <strong>as quickly as possible</strong> to HCI
+                      </P>
+                    </li>
+                    <li>
+                      <P>
+                        Lead times for specific items may restrict ability to maintain project
+                        schedule. HCI will notify if any impact exists
+                      </P>
+                    </li>
+                  </ol>
+                </DetailPage.Section>
+              </DetailPage.Section>
             </Box>
           </DetailPage.Card>
         </DetailPage.Body>
