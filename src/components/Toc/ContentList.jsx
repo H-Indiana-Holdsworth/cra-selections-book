@@ -86,59 +86,6 @@ export default function Toc() {
               </Table.Header>
 
               <Table.Body>
-                {/* General Requirements */}
-                <Table.BodyRow>
-                  <Table.BodyCell>*</Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.LinkCell href="/summary">Summary</Table.LinkCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>01</Table.TextCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>General Requirements</Table.TextCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>01 10 00</Table.TextCell>
-                  </Table.BodyCell>
-                </Table.BodyRow>
-
-                <Table.BodyRow>
-                  <Table.BodyCell>*</Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.LinkCell href="/substitution-procedures">
-                      Substitution Procedures
-                    </Table.LinkCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>01</Table.TextCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>General Requirements</Table.TextCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>01 25 00</Table.TextCell>
-                  </Table.BodyCell>
-                </Table.BodyRow>
-
-                <Table.BodyRow>
-                  <Table.BodyCell>*</Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.LinkCell href="/submittal-procedures">
-                      Submittal Procedures
-                    </Table.LinkCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>01</Table.TextCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>General Requirements</Table.TextCell>
-                  </Table.BodyCell>
-                  <Table.BodyCell>
-                    <Table.TextCell>01 33 00</Table.TextCell>
-                  </Table.BodyCell>
-                </Table.BodyRow>
-
                 {/* Concrete */}
                 <Table.BodyRow>
                   <Table.BodyCell>*</Table.BodyCell>
