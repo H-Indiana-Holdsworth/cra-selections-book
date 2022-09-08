@@ -2,6 +2,7 @@ import {
   Banner,
   H2,
   InfoBanner,
+  Link,
   LinkButton,
   ListPage,
   Pagination,
@@ -20,17 +21,20 @@ export default function Toc() {
           <ToolHeader>
             <ToolHeader.Title>Selections Book</ToolHeader.Title>
             <ToolHeader.Tabs>
-              <Tabs.Tab active>
-                <Tabs.Link href="/selection-list">Selection List</Tabs.Link>
+              <Tabs.Tab>
+                <Link href="/summary">
+                  <Tabs.Link>Summary</Tabs.Link>
+                </Link>
               </Tabs.Tab>
               <Tabs.Tab>
-                <Tabs.Link href="/summary">Summary</Tabs.Link>
+                <Link href="/substitution-procedures">
+                  <Tabs.Link>Substitution Procedures</Tabs.Link>
+                </Link>
               </Tabs.Tab>
               <Tabs.Tab>
-                <Tabs.Link href="/substitution-procedures">Substitution Procedures</Tabs.Link>
-              </Tabs.Tab>
-              <Tabs.Tab>
-                <Tabs.Link href="/submittal-procedures">Submittal Procedures</Tabs.Link>
+                <Link href="/submittal-procedures">
+                  <Tabs.Link>Submittal Procedures</Tabs.Link>
+                </Link>
               </Tabs.Tab>
             </ToolHeader.Tabs>
           </ToolHeader>

@@ -2,7 +2,6 @@ import {
   Banner,
   Box,
   Breadcrumbs,
-  Content,
   DetailPage,
   H1,
   InfoBanner,
