@@ -69,22 +69,27 @@ export default function Submittal() {
                   initialIsOpen={false}
                 >
                   <ol>
-                    <li>
-                      At the start of your project HCI will send a link that will be used to create
-                      your login for your project in Procore. This is the software that will be used
-                      to coordinate selections, submittals, changes, project progress, and Photos.
-                      Below are the tools that will be available for managing your project.
-                    </li>
-                    <ul>
+                    <P>
                       <li>
-                        <P>Making changes to a fully approved selection in part or whole.</P>
+                        At the start of your project HCI will send a link that will be used to
+                        create your login for your project in Procore. This is the software that
+                        will be used to coordinate selections, submittals, changes, project
+                        progress, and Photos. Below are the tools that will be available for
+                        managing your project.
                       </li>
+                    </P>
+                    <ul>
+                      <P>
+                        <li>Making changes to a fully approved selection in part or whole.</li>
+                      </P>
                     </ul>
-                    <li>
-                      In Procore, the tools can be accessed from the Project Tools drop-down menu
-                      button. See example below:
-                      <img src={project_tools} alt="Tools" />
-                    </li>
+                    <P>
+                      <li>
+                        In Procore, the tools can be accessed from the Project Tools drop-down menu
+                        button. See example below: <br />
+                        <img src={project_tools} alt="Tools" />
+                      </li>
+                    </P>
                     <ul>
                       <li>
                         <P>Here are the available tools:</P>
@@ -116,16 +121,18 @@ export default function Submittal() {
                         </ul>
                       </ul>
                     </ul>
-                    <li>Submittals</li>
+                    <P>
+                      <li>Submittals</li>
+                    </P>
                     <ul>
-                      <li>
-                        <P>
+                      <P>
+                        <li>
                           HCI will create a submittals for you to view in Procore. They will contain
                           the proposed product price, model, color, and location. You will then be
                           able to review the submittal and choose whether to 'Approve' it or
                           'Reject' it.
-                        </P>
-                      </li>
+                        </li>
+                      </P>
                     </ul>
                   </ol>
                 </DetailPage.Section>
@@ -136,59 +143,106 @@ export default function Submittal() {
                   initialIsOpen={false}
                 >
                   <ol>
-                    <li>
-                      <P>
+                    <P>
+                      <li>
                         <strong>Shop Drawing Submittal:</strong> Usually only for custom built
                         products. Written and graphic information that require comments and feedback
                         that will be returned as approved if no comments are needed, approved as
                         noted if minor changes are required, or rejected if requires substantial
                         changes.
-                      </P>
-                    </li>
-                    <li>
-                      <P>
+                      </li>
+                    </P>
+                    <P>
+                      <li>
                         <strong>Informational Submittal:</strong> Product specific information
                         pertaining manufacturer, model, color, dimensions.
-                      </P>
-                    </li>
-                    <li>
-                      <P>
+                      </li>
+                    </P>
+                    <P>
+                      <li>
                         <strong>Pricing Submittal: </strong> Pricing for any selection incorporated
                         into the project.
-                      </P>
-                    </li>
-                    <li>
-                      <P>
+                      </li>
+                    </P>
+                    <P>
+                      <li>
                         <strong>Finish Schedule Submittal: </strong> This will include information
                         from the table completed by the owner in the required specification
                         sections, with additional information added by HCI such as quantities, waste
                         factors, and any other information to be confirmed as needed.
-                      </P>
-                    </li>
+                      </li>
+                    </P>
                   </ol>
                 </DetailPage.Section>
-              </DetailPage.Section>
 
-              <DetailPage.Section
-                expandId={2}
-                heading="Considerations"
-                subtext="Considerations for the Owner to take into account."
-                initialIsOpen={true}
-              >
-                <DetailPage.Section expandId={20} heading="Changes" initialIsOpen={false}>
+                <DetailPage.Section
+                  expandId={12}
+                  heading="Submittal Procedure"
+                  initialIsOpen={false}
+                >
                   <ol>
+                    <P>
+                      <li>
+                        Each selection will be organized and prioritized by Specification Sections.
+                        Each Section will lay out information needed to make the selection
+                      </li>
+                    </P>
                     <li>
                       <P>
-                        Submit RFI for change to approved selections or plans{' '}
-                        <strong>as quickly as possible</strong> to HCI
+                        After the owner makes their selection, <strong>HCI</strong> will create the
+                        corresponding Submittal containing the information required to approve
+                        selection in Procore
                       </P>
                     </li>
                     <li>
                       <P>
-                        Lead times for specific items may restrict ability to maintain project
-                        schedule. HCI will notify if any impact exists
+                        Each Specification Section will list the types of submittals that the owner
+                        can expect from HCI
                       </P>
                     </li>
+                    <li>
+                      <P>Reviewing, approving, and rejecting submittals received from HCI</P>
+                    </li>
+                    <ul>
+                      <li>
+                        <P>
+                          Within Procore, the owner may choose whether to “Approve”, “Approve as
+                          noted”, or “Reject and Resubmit”
+                        </P>
+                      </li>
+                      <ul>
+                        <li>
+                          <P>
+                            <strong>Approved</strong>: No further steps required, selection has been
+                            confirmed and can be incorporated into the project
+                          </P>
+                        </li>
+                        <li>
+                          <P>
+                            <strong>Approved as noted</strong>: HCI will review and confirm that
+                            small changes from owner are understood and incorporated
+                          </P>
+                        </li>
+                        <li>
+                          <P>
+                            <strong>Rejected</strong>: HCI will review comments from owner, make any
+                            and all desired changes, and resubmit for owner review and comment
+                          </P>
+                        </li>
+                      </ul>
+                      <DetailPage.Banner>
+                        <InfoBanner>
+                          <Banner.Content>
+                            <Banner.Title>Note</Banner.Title>
+                            <Banner.Body>
+                              When reviewing attachments within a submittal, Procore provides markup
+                              tools for the you to markup, make notes, or suggest changes to the
+                              drawings
+                            </Banner.Body>
+                          </Banner.Content>
+                        </InfoBanner>
+                      </DetailPage.Banner>
+                    </ul>
                   </ol>
                 </DetailPage.Section>
               </DetailPage.Section>
