@@ -87,10 +87,43 @@ export default function Submittal() {
                     </li>
                     <ul>
                       <li>
+                        <P>Here are the available tools:</P>
+                      </li>
+                      <ul>
+                        <li>
+                          <P>Documents</P>
+                        </li>
+                        <li>
+                          <P>Drawings</P>
+                        </li>
+                        <li>
+                          <P>Emails</P>
+                        </li>
+                        <li>
+                          <P>Photos</P>
+                        </li>
+                        <li>
+                          <P>RFIs</P>
+                        </li>
+                        <ul>
+                          <li>
+                            <P>
+                              This is the tool that you will use to make a change request after you
+                              have approved a submittal from HCI, or want to make any changes to the
+                              architectural or structural plans
+                            </P>
+                          </li>
+                        </ul>
+                      </ul>
+                    </ul>
+                    <li>Submittals</li>
+                    <ul>
+                      <li>
                         <P>
-                          Moving, adding, or changing any portion of the approved construction
-                          documents. (i.e. moving a fireplace to a new location, adding/moving
-                          windows or walls)
+                          HCI will create a submittals for you to view in Procore. They will contain
+                          the proposed product price, model, color, and location. You will then be
+                          able to review the submittal and choose whether to 'Approve' it or
+                          'Reject' it.
                         </P>
                       </li>
                     </ul>
