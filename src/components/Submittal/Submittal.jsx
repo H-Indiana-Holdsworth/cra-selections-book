@@ -132,53 +132,39 @@ export default function Submittal() {
 
                 <DetailPage.Section
                   expandId={11}
-                  heading="Substitution/Change Event Procedures"
+                  heading="Types of Submittals and Definitions"
                   initialIsOpen={false}
                 >
                   <ol>
-                    <li>Procedure for changing an approved selection or an approved plan</li>
-                    <ul list-style-type="lower-alpha">
-                      <li>
-                        <P>Label “Subject” as “Change Request”</P>
-                      </li>
-                      <li>
-                        <P>Set ”Assignee” to appropriate HCI personnel</P>
-                      </li>
-                      <li>
-                        <P>Adjust RFI due date to a week from creation</P>
-                      </li>
-                      <li>
-                        <P>Assign “RFI Manager” to appropriate HCI personnel</P>
-                      </li>
-                      <li>
-                        <P>Add appropriate personnel to “Distribution List”</P>
-                      </li>
-                      <li>
-                        <P>Set “Responsible Contractor” to HCI</P>
-                      </li>
-                      <li>
-                        <P>Set “RFI Stage” to course of construction</P>
-                      </li>
-                      <li>
-                        <P>Include description or file of what is being changed</P>
-                      </li>
-                    </ul>
-                    <DetailPage.Banner>
-                      <InfoBanner>
-                        <Banner.Content>
-                          <Banner.Title>
-                            For changing an approved <strong>PLAN</strong>
-                          </Banner.Title>
-                          <Banner.Body>
-                            Follow all steps above, and <strong>also</strong> attach a marked up
-                            plan with specific details of what is being moved, added, removed, or
-                            changed.
-                          </Banner.Body>
-                        </Banner.Content>
-                      </InfoBanner>
-                    </DetailPage.Banner>
-                    <br />
-                    <li>Approved or Reject the revised submittal that you will receive from us</li>
+                    <li>
+                      <P>
+                        <strong>Shop Drawing Submittal:</strong> Usually only for custom built
+                        products. Written and graphic information that require comments and feedback
+                        that will be returned as approved if no comments are needed, approved as
+                        noted if minor changes are required, or rejected if requires substantial
+                        changes.
+                      </P>
+                    </li>
+                    <li>
+                      <P>
+                        <strong>Informational Submittal:</strong> Product specific information
+                        pertaining manufacturer, model, color, dimensions.
+                      </P>
+                    </li>
+                    <li>
+                      <P>
+                        <strong>Pricing Submittal: </strong> Pricing for any selection incorporated
+                        into the project.
+                      </P>
+                    </li>
+                    <li>
+                      <P>
+                        <strong>Finish Schedule Submittal: </strong> This will include information
+                        from the table completed by the owner in the required specification
+                        sections, with additional information added by HCI such as quantities, waste
+                        factors, and any other information to be confirmed as needed.
+                      </P>
+                    </li>
                   </ol>
                 </DetailPage.Section>
               </DetailPage.Section>
