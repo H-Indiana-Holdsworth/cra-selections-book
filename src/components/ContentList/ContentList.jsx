@@ -12,6 +12,7 @@ import {
   ToolHeader,
 } from '@procore/core-react';
 import React from 'react';
+import './ContentList.css';
 
 export default function Toc() {
   return (
