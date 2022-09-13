@@ -16,7 +16,7 @@ import './ContentList.css';
 
 export default function Toc() {
   return (
-    <ListPage>
+    <ListPage className="list-page">
       <ListPage.Main>
         <ListPage.ToolHeader>
           <ToolHeader>
