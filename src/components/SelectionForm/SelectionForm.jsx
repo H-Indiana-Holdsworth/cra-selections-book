@@ -1,7 +1,16 @@
 // import html2canvas from 'html2canvas';
 // import jsPDF from 'jspdf';
-import { Box, Breadcrumbs, Button, DetailPage, Form, H1, Required } from '@procore/core-react';
-import React from 'react';
+import {
+  Box,
+  Breadcrumbs,
+  Button,
+  DetailPage,
+  Form,
+  H1,
+  Required,
+  Select,
+} from '@procore/core-react';
+import React, { useState } from 'react';
 import './SelectionForm.css';
 
 export default function SelectionForm() {
@@ -42,6 +51,21 @@ export default function SelectionForm() {
   //   <div>I will not be in the PDF.</div>
   //   <div ref={printRef}>I will be in the PDF.</div>
   // </div>
+
+  // Form.Select code and data
+
+  const FormSelectOptions = [
+    { id: 1, label: 'Windows', groupAssociation: 1 },
+    { id: 2, label: 'Door Hardware', groupAssociation: 1 },
+    { id: 3, label: 'Tiling', groupAssociation: 2 },
+    { id: 4, label: 'Flooring', groupAssociation: 2 },
+  ];
+
+  const FormSelectGroupOptions = [
+    { uuid: 1, displayName: 'Openings' },
+    { uuid: 2, displayName: 'Finishes' },
+  ];
+
   return (
     <>
       <Form
@@ -68,75 +92,33 @@ export default function SelectionForm() {
                 </Breadcrumbs>
               </DetailPage.Breadcrumbs>
             </DetailPage.Header>
+
             <Form.Form>
               <DetailPage.Body>
                 <DetailPage.Title>
                   <H1>Make a Selection</H1>
                 </DetailPage.Title>
+
                 <DetailPage.Card>
                   <DetailPage.Section heading="General Information">
                     <Form.Row>
-                      <Form.Text name="text" label="Text" colStart={1} />
+                      <Form.Select
+                        name="select"
+                        label="Specification Section"
+                        getGroup={(option) => option.groupAssociation}
+                        groupGetId={(group) => group.uuid}
+                        groupGetLabel={(group) => group.displayName}
+                        options={FormSelectOptions}
+                        optgroups={FormSelectGroupOptions}
+                        colStart={1}
+                      />
                       <Form.Number
                         name="number"
-                        label="Number"
+                        label="Specification Section Number"
                         required
                         tooltip="An example tooltip for any field, this value goes directly to the Tooltip overlay prop"
                         colStart={7}
                       />
-                    </Form.Row>
-                    <Form.Row>
-                      <Form.Select
-                        name="select"
-                        label="Select"
-                        options={window.FormSelectOptions}
-                        colStart={1}
-                      />
-                      <Form.MultiSelect
-                        name="multiselect"
-                        label="MultiSelect, With A Longer Label For This Multiselect Did You Read All Of The Label Yet"
-                        options={window.FormSelectOptions}
-                        colStart={7}
-                      />
-                    </Form.Row>
-                    <Form.Row>
-                      <Form.Select
-                        name="select"
-                        label="Select with Groups"
-                        getGroup={(option) => option.groupAssociation}
-                        groupGetId={(group) => group.uuid}
-                        groupGetLabel={(group) => group.displayName}
-                        options={window.FormSelectOptions}
-                        optgroups={window.FormSelectGroupOptions}
-                      />
-                      <Form.PillSelect
-                        name="pillselect"
-                        label="Status"
-                        options={window.FormPillSelectOptions}
-                        colStart={7}
-                      />
-                    </Form.Row>
-                    <Form.Row>
-                      <Form.TieredSelect
-                        name="tieredselect"
-                        label="Tiered Select"
-                        options={window.FormTieredSelectOptions}
-                        colStart={1}
-                      />
-                      <Form.GroupSelect
-                        name="groupselect"
-                        label="Group Select for Distribution"
-                        options={window.FormGroupSelectOptions}
-                        groups={window.FormGroupSelectGroups}
-                        colStart={7}
-                      />
-                    </Form.Row>
-                    <Form.Row>
-                      <Form.Checkbox name="checkbox" label="Checkbox" colStart={1} />
-                      <Form.DateSelect name="date" label="Date" colStart={7} />
-                    </Form.Row>
-                    <Form.Row>
-                      <Form.TextArea name="textarea" label="Textarea" />
                     </Form.Row>
                     <Form.Row>
                       <Form.Checkboxes
@@ -145,26 +127,20 @@ export default function SelectionForm() {
                         options={window.FormSelectOptions}
                         colStart={1}
                       />
-                      <Form.RadioButtons
-                        name="radiobuttons"
-                        label="Radio Buttons"
-                        options={window.FormSelectOptions}
-                        colStart={7}
-                      />
+                      <Form.DateSelect name="date" label="Date" colStart={7} />
                     </Form.Row>
                     <Form.Row>
-                      <Form.Currency name="currency" label="Currency" />
-                    </Form.Row>
-                    <Form.Row>
-                      <Form.RichText name="richtext" colWidth={12} label="Richtext" />
+                      <Form.RichText name="richtext" colWidth={12} label="Richtext" required />
                     </Form.Row>
                   </DetailPage.Section>
                 </DetailPage.Card>
               </DetailPage.Body>
+
               <DetailPage.Footer>
                 <DetailPage.FooterNotation>
                   <Required showLabel textAlign="right" />
                 </DetailPage.FooterNotation>
+
                 <DetailPage.FooterActions>
                   <Button variant="secondary">Secondary</Button>
                   <Button type="submit">Submit</Button>
