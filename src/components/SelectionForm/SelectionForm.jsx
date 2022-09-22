@@ -10,6 +10,7 @@ import {
   Required,
   Select,
 } from '@procore/core-react';
+import { Item } from '@procore/core-react/dist/FileList/FileList';
 import React, { useState } from 'react';
 import './SelectionForm.css';
 
@@ -55,7 +56,7 @@ export default function SelectionForm() {
   // Form.Select code and data
 
   const FormSelectOptions = [
-    { id: 1, label: 'Windows', groupAssociation: 1 },
+    { id: '08 50 00', label: 'Windows', groupAssociation: 1 },
     { id: 2, label: 'Door Hardware', groupAssociation: 1 },
     { id: 3, label: 'Tiling', groupAssociation: 2 },
     { id: 4, label: 'Flooring', groupAssociation: 2 },
@@ -65,6 +66,14 @@ export default function SelectionForm() {
     { uuid: 1, displayName: 'Openings' },
     { uuid: 2, displayName: 'Finishes' },
   ];
+
+  const [section, setSection] = useState({ id: '' });
+  const onSelect = ({ item }) => {
+    setSection(item);
+    parseInt(item.id);
+    console.log('item.id :>> ', item.id);
+  };
+  console.log('section :>> ', section.id);
 
   return (
     <>
@@ -110,13 +119,17 @@ export default function SelectionForm() {
                         groupGetLabel={(group) => group.displayName}
                         options={FormSelectOptions}
                         optgroups={FormSelectGroupOptions}
+                        // onChange={setSection}
+                        onSelect={onSelect}
                         colStart={1}
                       />
-                      <Form.Number
-                        name="number"
+
+                      <Form.Text
+                        name="text"
                         label="Specification Section Number"
-                        required
-                        tooltip="An example tooltip for any field, this value goes directly to the Tooltip overlay prop"
+                        disabled
+                        value={section.id}
+                        tooltip="You do not need to edit this number, it is used to link your selection to the correct Specification Section in Procore"
                         colStart={7}
                       />
                     </Form.Row>
