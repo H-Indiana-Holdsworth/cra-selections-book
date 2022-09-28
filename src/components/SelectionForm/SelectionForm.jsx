@@ -1,9 +1,7 @@
 // import html2canvas from 'html2canvas';
 // import jsPDF from 'jspdf';
 import { Breadcrumbs, Button, DetailPage, Form, H1, Required } from '@procore/core-react';
-import html2canvas from 'html2canvas';
 import html2pdf from 'html2pdf.js';
-import jsPDF from 'jspdf';
 import React, { useEffect, useState } from 'react';
 import './SelectionForm.css';
 
