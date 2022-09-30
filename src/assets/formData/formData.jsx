@@ -11,6 +11,6 @@ export const FormSelectGroupOptions = [
 ];
 
 export const FormInitialValues = {
-  select: FormSelectOptions[0],
-  text: 'yeyeyes;alfkjasd sdfgklsjda ;sldajf asdl;jf ',
+  select: '',
+  text: 'IIIIITs working!',
 };
