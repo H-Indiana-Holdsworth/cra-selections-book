@@ -2,13 +2,10 @@ import { Button, DetailPage, Form, H1, Required } from '@procore/core-react';
 import { PersistFormikValues } from 'formik-persist-values';
 import React from 'react';
 import { FormSelectGroupOptions, FormSelectOptions } from '../../assets/formData/formData';
-import { useForm } from '../../hooks/useForm';
+// import { useForm } from '../../hooks/useForm';
 import './SelectionFormCreate.css';
 
 export default function SelectionFormCreate() {
-  const { section, onSelect } = useForm();
-  console.log('section.id :>> ', Form.Select.id);
-
   return (
     <Form.Form>
       <DetailPage.Body>
@@ -27,7 +24,7 @@ export default function SelectionFormCreate() {
                 groupGetLabel={(group) => group.displayName}
                 options={FormSelectOptions}
                 optgroups={FormSelectGroupOptions}
-                onSelect={onSelect}
+                // onSelect={onSelect}
                 colStart={1}
               />
 
@@ -35,7 +32,7 @@ export default function SelectionFormCreate() {
                 name="text"
                 label="Specification Section Number"
                 disabled
-                value={Form.Select.id}
+                // value={section.id}
                 tooltip="You do not need to edit this number, it is used to link your selection to the correct Specification Section in Procore"
                 colStart={7}
               />
