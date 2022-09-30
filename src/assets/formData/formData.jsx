@@ -12,5 +12,7 @@ export const FormSelectGroupOptions = [
 
 export const FormInitialValues = {
   select: '',
-  text: 'IIIIITs working!',
+  text: '',
+  date: '',
+  checkboxes: '',
 };

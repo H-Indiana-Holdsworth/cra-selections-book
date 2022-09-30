@@ -1,41 +1,13 @@
-import {
-  Breadcrumbs,
-  Button,
-  DetailPage,
-  Form,
-  H1,
-  Required,
-  useFormContext,
-} from '@procore/core-react';
-import React, { useState } from 'react';
-import {
-  FormInitialValues,
-  FormSelectGroupOptions,
-  FormSelectOptions,
-} from '../../assets/formData/formData';
-import { useForm } from '../../hooks/useForm';
-import * as Yup from 'yup';
-import './SelectionFormCreate.css';
+import { Button, DetailPage, Form, H1, Required } from '@procore/core-react';
 import { PersistFormikValues } from 'formik-persist-values';
+import React from 'react';
+import { FormSelectGroupOptions, FormSelectOptions } from '../../assets/formData/formData';
+import { useForm } from '../../hooks/useForm';
+import './SelectionFormCreate.css';
 
 export default function SelectionFormCreate() {
-  // Form states
-
-  const [formfilled, setFormfilled] = useState(false);
-
   const { section, onSelect } = useForm();
-
-  const handleSubmit = () => {
-    try {
-      setFormfilled(true);
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  // const FormSchema = Yup.object().shape({
-  //   text: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-  // });
+  console.log('section.id :>> ', Form.Select.id);
 
   return (
     <Form.Form>
@@ -55,7 +27,6 @@ export default function SelectionFormCreate() {
                 groupGetLabel={(group) => group.displayName}
                 options={FormSelectOptions}
                 optgroups={FormSelectGroupOptions}
-                // onChange={setSection}
                 onSelect={onSelect}
                 colStart={1}
               />
@@ -64,22 +35,16 @@ export default function SelectionFormCreate() {
                 name="text"
                 label="Specification Section Number"
                 disabled
-                value={section.id}
+                value={Form.Select.id}
                 tooltip="You do not need to edit this number, it is used to link your selection to the correct Specification Section in Procore"
                 colStart={7}
               />
             </Form.Row>
             <Form.Row>
-              <Form.Checkboxes
-                name="checkboxes"
-                label="Checkboxes"
-                options={window.FormSelectOptions}
-                colStart={1}
-              />
-              <Form.DateSelect name="date" label="Date" colStart={7} />
+              <Form.DateSelect name="date" label="Date" colStart={1} />
             </Form.Row>
             <Form.Row>
-              <Form.Text name="text" colWidth={12} label="Text" required />
+              <Form.RichText name="richtext" colWidth={12} label="Text" required />
             </Form.Row>
           </DetailPage.Section>
         </DetailPage.Card>
@@ -93,6 +58,7 @@ export default function SelectionFormCreate() {
         <DetailPage.FooterActions>
           <Button variant="secondary">Secondary</Button>
           <Button type="submit">Submit</Button>
+          <PersistFormikValues name="selection-form" />
         </DetailPage.FooterActions>
       </DetailPage.Footer>
     </Form.Form>
