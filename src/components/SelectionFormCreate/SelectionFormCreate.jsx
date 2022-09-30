@@ -1,11 +1,56 @@
-import { Button, DetailPage, Form, H1, Required } from '@procore/core-react';
-import { PersistFormikValues } from 'formik-persist-values';
-import React from 'react';
+import {
+  Button,
+  DetailPage,
+  Dropzone,
+  Form,
+  Grid,
+  H1,
+  Required,
+  useDropzone,
+  useField,
+  useFormContext,
+} from '@procore/core-react';
+import React, { useEffect } from 'react';
 import { FormSelectGroupOptions, FormSelectOptions } from '../../assets/formData/formData';
 // import { useForm } from '../../hooks/useForm';
 import './SelectionFormCreate.css';
 
+// Dependent Field Example from Formik Docs
+const SectionNumber = (props) => {
+  const {
+    values: { select },
+    touched,
+    setFieldValue,
+  } = useFormContext();
+  const { field, meta } = useField(props);
+
+  useEffect(() => {
+    // set the value of props, based on select
+    if (touched.select) {
+      setFieldValue(props.name, `${select.id}`);
+    }
+  }, [select, touched.select, setFieldValue, props.name]);
+
+  return (
+    <>
+      <Form.Text
+        name="text"
+        label="#"
+        {...props}
+        {...field}
+        disabled
+        tooltip="You do not need to edit this number, it is used to link your selection to the correct Specification Section in Procore"
+        colStart={7}
+        colWidth={4}
+      />
+      {!!meta.touched && !!meta.error && <div>{meta.error}</div>}
+    </>
+  );
+};
+
 export default function SelectionFormCreate() {
+  const dropzoneState = useDropzone();
+
   return (
     <Form.Form>
       <DetailPage.Body>
@@ -26,23 +71,20 @@ export default function SelectionFormCreate() {
                 optgroups={FormSelectGroupOptions}
                 // onSelect={onSelect}
                 colStart={1}
+                colWidth={6}
               />
-
-              <Form.Text
-                name="text"
-                label="Specification Section Number"
-                disabled
-                // value={section.id}
-                tooltip="You do not need to edit this number, it is used to link your selection to the correct Specification Section in Procore"
-                colStart={7}
-              />
+              <SectionNumber name="text" />
+              <Form.DateSelect name="date" label="Date" colStart={11} />
             </Form.Row>
             <Form.Row>
-              <Form.DateSelect name="date" label="Date" colStart={1} />
+              <Form.RichText name="richtext" colWidth={6} label="Selection Details" required />
             </Form.Row>
-            <Form.Row>
-              <Form.RichText name="richtext" colWidth={12} label="Text" required />
-            </Form.Row>
+            <Grid.Row>
+              <Grid.Col colStart={6}>
+                <Dropzone isIconVisible={true} {...dropzoneState} />
+              </Grid.Col>
+            </Grid.Row>
+            <Form.Row></Form.Row>
           </DetailPage.Section>
         </DetailPage.Card>
       </DetailPage.Body>
@@ -55,7 +97,6 @@ export default function SelectionFormCreate() {
         <DetailPage.FooterActions>
           <Button variant="secondary">Secondary</Button>
           <Button type="submit">Submit</Button>
-          <PersistFormikValues name="selection-form" />
         </DetailPage.FooterActions>
       </DetailPage.Footer>
     </Form.Form>
