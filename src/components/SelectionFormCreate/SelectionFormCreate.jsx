@@ -2,15 +2,18 @@ import {
   Button,
   DetailPage,
   Dropzone,
+  FlexList,
   Form,
   Grid,
   H1,
   Required,
+  Token,
   useDropzone,
   useField,
   useFormContext,
 } from '@procore/core-react';
-import React, { useEffect } from 'react';
+import { PersistFormikValues } from 'formik-persist-values';
+import React, { useEffect, useState } from 'react';
 import { FormSelectGroupOptions, FormSelectOptions } from '../../assets/formData/formData';
 // import { useForm } from '../../hooks/useForm';
 import './SelectionFormCreate.css';
@@ -49,7 +52,29 @@ const SectionNumber = (props) => {
 };
 
 export default function SelectionFormCreate() {
-  const dropzoneState = useDropzone();
+  // React-Dropzone code and state
+  const [acceptedFiles, setAcceptedFiles] = useState([]);
+  console.log('acceptedFiles :>> ', acceptedFiles);
+
+  const onDrop = (newFiles) => {
+    setAcceptedFiles((prev) => [...prev, ...newFiles]);
+    console.log(`${newFiles.length} files added!`);
+  };
+
+  const dropzoneState = useDropzone({
+    multiple: true,
+    onDrop,
+    value: acceptedFiles,
+    maxFileNumber: 5,
+  });
+
+  const handleRemove = (file) => () => {
+    // const updatedFiles = [...acceptedFiles];
+    acceptedFiles.splice(acceptedFiles.indexOf(file), 1);
+    setAcceptedFiles(acceptedFiles);
+
+    console.log('NewAcceptedFiles', acceptedFiles);
+  };
 
   return (
     <Form.Form>
@@ -77,14 +102,31 @@ export default function SelectionFormCreate() {
               <Form.DateSelect name="date" label="Date" colStart={11} />
             </Form.Row>
             <Form.Row>
-              <Form.RichText name="richtext" colWidth={6} label="Selection Details" required />
+              <Form.RichText
+                name="richtext"
+                label="Selection Details"
+                required
+                colStart={1}
+                colWidth={12}
+              />
             </Form.Row>
             <Grid.Row>
-              <Grid.Col colStart={6}>
-                <Dropzone isIconVisible={true} {...dropzoneState} />
+              <Grid.Col>
+                <Dropzone {...dropzoneState} />
               </Grid.Col>
             </Grid.Row>
-            <Form.Row></Form.Row>
+            <Form.Row>
+              <FlexList wrap="wrap">
+                {acceptedFiles.map((file) => (
+                  <div style={{ marginTop: '12px' }} key={file.path}>
+                    <Token style={{ display: 'inline-flex', margin: '0px' }}>
+                      <Token.Label>{file.name}</Token.Label>
+                      <Token.Remove onClick={handleRemove(file)} />
+                    </Token>
+                  </div>
+                ))}
+              </FlexList>
+            </Form.Row>
           </DetailPage.Section>
         </DetailPage.Card>
       </DetailPage.Body>
