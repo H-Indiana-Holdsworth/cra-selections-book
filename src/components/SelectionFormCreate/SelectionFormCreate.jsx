@@ -51,7 +51,7 @@ const SectionNumber = (props) => {
   );
 };
 
-export default function SelectionFormCreate() {
+export default function SelectionFormCreate({ formFilled }) {
   // React-Dropzone code and state
   const [acceptedFiles, setAcceptedFiles] = useState([]);
   console.log('acceptedFiles :>> ', acceptedFiles);
@@ -110,23 +110,28 @@ export default function SelectionFormCreate() {
                 colWidth={12}
               />
             </Form.Row>
-            <Grid.Row>
-              <Grid.Col>
-                <Dropzone {...dropzoneState} />
-              </Grid.Col>
-            </Grid.Row>
-            <Form.Row>
-              <FlexList wrap="wrap">
-                {acceptedFiles.map((file) => (
-                  <div style={{ marginTop: '12px' }} key={file.path}>
-                    <Token style={{ display: 'inline-flex', margin: '0px' }}>
-                      <Token.Label>{file.name}</Token.Label>
-                      <Token.Remove onClick={handleRemove(file)} />
-                    </Token>
-                  </div>
-                ))}
-              </FlexList>
-            </Form.Row>
+
+            {!formFilled ? (
+              <>
+                <Grid.Row>
+                  <Grid.Col>
+                    <Dropzone {...dropzoneState} />
+                  </Grid.Col>
+                </Grid.Row>
+                <Form.Row>
+                  <FlexList wrap="wrap">
+                    {acceptedFiles.map((file) => (
+                      <div style={{ marginTop: '12px' }} key={file.path}>
+                        <Token style={{ display: 'inline-flex', margin: '0px' }}>
+                          <Token.Label>{file.name}</Token.Label>
+                          <Token.Remove onClick={handleRemove(file)} />
+                        </Token>
+                      </div>
+                    ))}
+                  </FlexList>
+                </Form.Row>
+              </>
+            ) : null}
           </DetailPage.Section>
         </DetailPage.Card>
       </DetailPage.Body>

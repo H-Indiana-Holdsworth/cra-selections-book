@@ -54,7 +54,7 @@ export default function SelectionFormContainer() {
           </DetailPage.Header>
 
           {/* Render the form fields themselves */}
-          <SelectionFormCreate />
+          <SelectionFormCreate formFilled={formFilled} />
         </DetailPage.Main>
       </DetailPage>
     </Form>
