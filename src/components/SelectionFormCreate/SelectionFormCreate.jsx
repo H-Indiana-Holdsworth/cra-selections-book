@@ -136,16 +136,19 @@ export default function SelectionFormCreate({ formFilled }) {
         </DetailPage.Card>
       </DetailPage.Body>
 
-      <DetailPage.Footer>
-        <DetailPage.FooterNotation>
-          <Required showLabel textAlign="right" />
-        </DetailPage.FooterNotation>
-
-        <DetailPage.FooterActions>
-          <Button variant="secondary">Secondary</Button>
-          <Button type="submit">Submit</Button>
-        </DetailPage.FooterActions>
-      </DetailPage.Footer>
+      {!formFilled ? (
+        <>
+          <DetailPage.Footer>
+            <DetailPage.FooterNotation>
+              <Required showLabel textAlign="right" />
+            </DetailPage.FooterNotation>
+            <DetailPage.FooterActions>
+              <Button variant="secondary">Secondary</Button>
+              <Button type="submit">Submit</Button>
+            </DetailPage.FooterActions>
+          </DetailPage.Footer>
+        </>
+      ) : null}
     </Form.Form>
   );
 }
